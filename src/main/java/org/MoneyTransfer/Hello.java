@@ -2,7 +2,6 @@ package org.MoneyTransfer;
 
 import org.MoneyTransfer.dao.AccountDAO;
 import org.MoneyTransfer.model.Account;
-import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Singleton
 @Path("/")
-public class Hello extends ResourceConfig
+public class Hello
 {
     @Inject
     private AccountDAO accDAO;
