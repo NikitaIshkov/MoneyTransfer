@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class Hello extends ResourceConfig
 {
     @Inject
-    private AccountDAO accDAO ;
+    private AccountDAO accDAO;
 
     @POST
     @Path("/create")
@@ -54,7 +54,7 @@ public class Hello extends ResourceConfig
 
     @GET
     @Path("/balance/{id}")
-    public Response getBalance(@PathParam("id") int id) throws WebApplicationException
+    public Response getBalance(@PathParam("id") int id)
     {
         Account acc = accDAO.findById(id);
 
@@ -67,7 +67,7 @@ public class Hello extends ResourceConfig
     @PUT
     @Path("/add")
     public Response putMoney(@FormParam("id") int id,
-                             @FormParam("amount") String amount) throws WebApplicationException
+                             @FormParam("amount") String amount)
     {
         BigDecimal bdAmount = new BigDecimal(amount);
 
@@ -88,7 +88,7 @@ public class Hello extends ResourceConfig
     @Path("/send")
     public Response sendMoney(@FormParam("fromId") int fromId,
                               @FormParam("toId") int toId,
-                              @FormParam("amount") String amount) throws WebApplicationException
+                              @FormParam("amount") String amount)
     {
         BigDecimal bdAmount = new BigDecimal(amount);
 
@@ -118,7 +118,7 @@ public class Hello extends ResourceConfig
 
     @DELETE
     @Path("/delete/{id}")
-    public Response deleteAccount(@PathParam("id") int id) throws WebApplicationException
+    public Response deleteAccount(@PathParam("id") int id)
     {
         if (accDAO.delete(id) == null)
             throw new WebApplicationException("No such account", Response.Status.NOT_FOUND);
